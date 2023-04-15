@@ -5,6 +5,7 @@ import 'package:final_girl_tool/model/location.dart';
 import 'package:final_girl_tool/model/killer.dart';
 import 'package:final_girl_tool/model/game.dart';
 import 'package:final_girl_tool/model/statistic.dart';
+import 'package:confirm_dialog/confirm_dialog.dart';
 
 class StatisticPage extends StatefulWidget {
   const StatisticPage({super.key});
@@ -125,6 +126,10 @@ class __StatisticPageState extends State<StatisticPage> {
       detailedStatistic.mostLostKiller = mostLostKiller;
       detailedStatistic.mostLostLocation = mostLostLocation;
     });
+  }
+
+  Future<void> deleteGame() async {
+    FinalGirlDatabase.instance.deleteGame(currentStatistic.id!);
   }
 
   @override
@@ -367,35 +372,35 @@ class __StatisticPageState extends State<StatisticPage> {
                       Text(
                         "Game #${currentIndex + 1}",
                         style: const TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.bold),
+                            fontSize: 26, fontWeight: FontWeight.bold),
                       ),
                       const Text(
                         "Game name:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       ),
                       const Text(
                         "Final Girl:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       ),
                       const Text(
                         "Killer:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       ),
                       const Text(
                         "Location:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       ),
                       const Text(
                         "Victims saved:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       ),
                       const Text(
                         "Victims killed:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       ),
                       const Text(
                         "Note:",
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 17),
                       )
                     ]),
               ),
@@ -436,36 +441,77 @@ class __StatisticPageState extends State<StatisticPage> {
                       ),
                       Text(
                         currentStatistic.gameName,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       ),
                       Text(
                         currentGirl.name,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       ),
                       Text(
                         currentKiller.name,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       ),
                       Text(
                         currentLocation.name,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       ),
                       Text(
                         "${currentStatistic.victimsSaved}",
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       ),
                       Text(
                         "${currentStatistic.victimsKilled}",
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       ),
                       Text(
                         currentStatistic.description,
-                        style: const TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 17),
                       )
                     ]),
               ),
             ],
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),
+            child: FloatingActionButton(
+                onPressed: () {
+                  if (games.isNotEmpty) {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext dialogContext) => AlertDialog(
+                        title: const Text('Delete game'),
+                        content: SingleChildScrollView(
+                          child: ListBody(
+                            children: const <Widget>[
+                              Text("Are you sure you want to delete this game?")
+                            ],
+                          ),
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('Cancel'),
+                            onPressed: () {
+                              Navigator.of(dialogContext).pop();
+                            },
+                          ),
+                          TextButton(
+                            child: const Text('Continue'),
+                            onPressed: () {
+                              deleteGame();
+                              setState(() {
+                                currentIndex = 0;
+                              });
+                              Navigator.of(dialogContext).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                },
+                backgroundColor: Colors.red,
+                child: const Icon(Icons.delete)),
+          ),
         ],
       ),
     );
