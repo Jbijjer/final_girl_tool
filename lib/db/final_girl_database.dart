@@ -498,6 +498,8 @@ class FinalGirlDatabase {
     createKiller(Killer(name: 'Geppetto', isInCollection: false));
     createKiller(Killer(name: 'Inkanyambo', isInCollection: false));
     createKiller(Killer(name: 'Dr. Fright', isInCollection: false));
+    createKiller(Killer(name: 'The Birds', isInCollection: false));
+    createKiller(Killer(name: 'The Zombies', isInCollection: false));
 
     createLocation(Location(name: 'USCSS PATNA', isInCollection: false));
     createLocation(Location(name: 'Station 2891', isInCollection: false));

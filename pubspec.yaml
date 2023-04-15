@@ -23,6 +23,7 @@ dependencies:
   numberpicker: ^2.1.2
   path: ^1.8.2
   flutter_launcher_icons: "^0.13.0"
+  confirm_dialog: ^1.0.1
 
 dev_dependencies:
   flutter_test:
