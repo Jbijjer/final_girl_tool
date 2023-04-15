@@ -86,9 +86,9 @@ class _RandomizerPageState extends State<RandomizerPage> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: const Text('Important!'),
-            content: SingleChildScrollView(
+            content: const SingleChildScrollView(
               child: ListBody(
-                children: const <Widget>[
+                children: <Widget>[
                   Text('Your collection is not set correctly.'),
                   Text(
                       'Please go to your collection to choose your extensions.'),

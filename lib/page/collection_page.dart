@@ -101,9 +101,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadGirls();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/girl.png"),
                                     size: 50.0), // icon
                                 Text("Girls",
@@ -130,9 +130,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadKillers();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/knife.png"),
                                     size: 50.0),
                                 Text("Killers",
@@ -159,9 +159,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadLocations();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/boot.png"),
                                     size: 50.0), // icon
                                 Text("Locations",
@@ -251,9 +251,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadGirls();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/girl.png"),
                                     size: 50.0), // icon
                                 Text("Girls",
@@ -280,9 +280,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadKillers();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/knife.png"),
                                     size: 50.0), // icon
                                 Text("Killers",
@@ -309,9 +309,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadLocations();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/boot.png"),
                                     size: 50.0), // icon
                                 Text("Locations",
@@ -407,9 +407,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadGirls();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/girl.png"),
                                     size: 50.0), // icon
                                 Text("Girls",
@@ -436,9 +436,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadKillers();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/knife.png"),
                                     size: 50.0), // icon// icon
                                 Text("Killers",
@@ -465,9 +465,9 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadLocations();
                             }, // button pressed
-                            child: Column(
+                            child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const <Widget>[
+                              children: <Widget>[
                                 ImageIcon(AssetImage("assets/boot.png"),
                                     size: 50.0), // icon
                                 Text("Locations",

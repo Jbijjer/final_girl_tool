@@ -142,11 +142,11 @@ class __StatisticPageState extends State<StatisticPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(16, 16, 8, 8),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(16, 16, 8, 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       "Games played:",
                       style: TextStyle(fontSize: 16),
@@ -229,8 +229,8 @@ class __StatisticPageState extends State<StatisticPage> {
                   ],
                 ),
               ),
-              Column(
-                children: const [
+              const Column(
+                children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                     child: ImageIcon(
@@ -277,8 +277,8 @@ class __StatisticPageState extends State<StatisticPage> {
                   ],
                 ),
               ),
-              Column(
-                children: const [
+              const Column(
+                children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                     child: ImageIcon(
@@ -325,8 +325,8 @@ class __StatisticPageState extends State<StatisticPage> {
                   ],
                 ),
               ),
-              Column(
-                children: const [
+              const Column(
+                children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                     child: ImageIcon(

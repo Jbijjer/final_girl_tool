@@ -20,7 +20,7 @@ dependencies:
   path_provider: ^2.0.14
   sqflite: ^2.2.6
   swipe: ^0.0.1
-  numberpicker: ^2.1.1
+  numberpicker: ^2.1.2
   path: ^1.8.2
   flutter_launcher_icons: "^0.13.0"
 
