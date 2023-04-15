@@ -146,7 +146,7 @@ class __StatisticPageState extends State<StatisticPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Padding(
+              Padding(
                 padding: EdgeInsets.fromLTRB(16, 16, 8, 8),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,7 +233,7 @@ class __StatisticPageState extends State<StatisticPage> {
                   ],
                 ),
               ),
-              const Column(
+              Column(
                 children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
@@ -281,7 +281,7 @@ class __StatisticPageState extends State<StatisticPage> {
                   ],
                 ),
               ),
-              const Column(
+              Column(
                 children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
@@ -329,7 +329,7 @@ class __StatisticPageState extends State<StatisticPage> {
                   ],
                 ),
               ),
-              const Column(
+              Column(
                 children: [
                   Padding(
                     padding: EdgeInsets.fromLTRB(8, 0, 0, 0),

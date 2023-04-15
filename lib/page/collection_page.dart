@@ -101,7 +101,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadGirls();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/girl.png"),
@@ -130,7 +130,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadKillers();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/knife.png"),
@@ -159,7 +159,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadLocations();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/boot.png"),
@@ -251,7 +251,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadGirls();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/girl.png"),
@@ -280,7 +280,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadKillers();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/knife.png"),
@@ -309,12 +309,12 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadLocations();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                                ImageIcon(AssetImage("assets/boot.png"),
+                                const ImageIcon(AssetImage("assets/boot.png"),
                                     size: 50.0), // icon
-                                Text("Locations",
+                                const Text("Locations",
                                     style: TextStyle(fontSize: 12)), // text
                               ],
                             ),
@@ -407,7 +407,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadGirls();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/girl.png"),
@@ -436,7 +436,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadKillers();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/knife.png"),
@@ -465,7 +465,7 @@ class _CollectionSelectPageState extends State<CollectionSelectPage> {
                               });
                               _loadLocations();
                             }, // button pressed
-                            child: const Column(
+                            child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 ImageIcon(AssetImage("assets/boot.png"),

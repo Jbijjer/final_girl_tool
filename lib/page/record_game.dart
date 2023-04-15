@@ -67,7 +67,7 @@ class __RecordGamePageState extends State<RecordGamePage> {
       context: context,
       builder: (BuildContext dialogContext) => AlertDialog(
         title: const Text('Recorded game!'),
-        content: const SingleChildScrollView(
+        content: SingleChildScrollView(
           child: ListBody(
             children: <Widget>[Text("Your game is recorded!")],
           ),
@@ -141,7 +141,7 @@ class __RecordGamePageState extends State<RecordGamePage> {
           ),
         ]),
         Row(children: <Widget>[
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
