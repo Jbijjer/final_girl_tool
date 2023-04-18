@@ -143,6 +143,7 @@ class __StatisticPageState extends State<StatisticPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -361,115 +362,151 @@ class __StatisticPageState extends State<StatisticPage> {
             height: 12,
             thickness: 5,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Game #${currentIndex + 1}",
-                        style: const TextStyle(
-                            fontSize: 26, fontWeight: FontWeight.bold),
-                      ),
-                      const Text(
-                        "Game name:",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      const Text(
-                        "Final Girl:",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      const Text(
-                        "Killer:",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      const Text(
-                        "Location:",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      const Text(
-                        "Victims saved:",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      const Text(
-                        "Victims killed:",
-                        style: TextStyle(fontSize: 17),
-                      ),
-                      const Text(
-                        "Note:",
-                        style: TextStyle(fontSize: 17),
-                      )
-                    ]),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Game #${currentIndex + 1}",
+                    style: const TextStyle(
+                        fontSize: 26, fontWeight: FontWeight.bold),
+                  ),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (currentIndex > 0) {
+                            currentIndex--;
+                            _loadStatistics();
+                          } else {
+                            currentIndex = games.length - 1;
+                            _loadStatistics();
+                          }
+                        });
+                      },
+                      icon: const Icon(Icons.arrow_back_ios)),
+                  IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (currentIndex < games.length - 1) {
+                            currentIndex++;
+                            _loadStatistics();
+                          } else {
+                            currentIndex = 0;
+                            _loadStatistics();
+                          }
+                        });
+                      },
+                      icon: const Icon(Icons.arrow_forward_ios))
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Row(
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (currentIndex > 0) {
-                                    currentIndex--;
-                                    _loadStatistics();
-                                  } else {
-                                    currentIndex = games.length - 1;
-                                    _loadStatistics();
-                                  }
-                                });
-                              },
-                              icon: const Icon(Icons.arrow_back_ios)),
-                          IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  if (currentIndex < games.length - 1) {
-                                    currentIndex++;
-                                    _loadStatistics();
-                                  } else {
-                                    currentIndex = 0;
-                                    _loadStatistics();
-                                  }
-                                });
-                              },
-                              icon: const Icon(Icons.arrow_forward_ios))
-                        ],
-                      ),
-                      Text(
-                        currentStatistic.gameName,
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        currentGirl.name,
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        currentKiller.name,
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        currentLocation.name,
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        "${currentStatistic.victimsSaved}",
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        "${currentStatistic.victimsKilled}",
-                        style: const TextStyle(fontSize: 17),
-                      ),
-                      Text(
-                        currentStatistic.description,
-                        style: const TextStyle(fontSize: 17),
-                      )
-                    ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Game name:",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentStatistic.gameName,
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
               ),
-            ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Victory:",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentStatistic.win ? "Yes" : "No",
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Final Girl:",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentGirl.name,
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Killer:",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentKiller.name,
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Location:",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentLocation.name,
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Victims saved:",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentStatistic.victimsSaved.toString(),
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Victims killer",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentStatistic.victimsKilled.toString(),
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    "Note",
+                    style: TextStyle(fontSize: 17),
+                  ),
+                  Text(
+                    currentStatistic.description,
+                    style: const TextStyle(fontSize: 17),
+                  ),
+                ],
+              ),
+            ]),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),

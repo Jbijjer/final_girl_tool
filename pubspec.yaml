@@ -24,6 +24,7 @@ dependencies:
   path: ^1.8.2
   flutter_launcher_icons: "^0.13.0"
   confirm_dialog: ^1.0.1
+  persistent_bottom_nav_bar: ^5.0.2
 
 dev_dependencies:
   flutter_test:

@@ -95,7 +95,7 @@ class __RecordGamePageState extends State<RecordGamePage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(children: <Widget>[
           Padding(
@@ -252,11 +252,14 @@ class __RecordGamePageState extends State<RecordGamePage> {
                 ],
               )
             ]),
-        FloatingActionButton(
-            onPressed: () {
-              _saveGame();
-            },
-            child: const Icon(Icons.save)),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),
+          child: FloatingActionButton(
+              onPressed: () {
+                _saveGame();
+              },
+              child: const Icon(Icons.save)),
+        ),
       ],
     );
   }

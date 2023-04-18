@@ -42,7 +42,6 @@ class _FinalGirlToolState extends State<FinalGirlTool> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       appBar: AppBar(
         title: Text(titleAppBar),
         actions: [

@@ -1,7 +1,11 @@
+import 'package:final_girl_tool/model/girl.dart';
 import 'package:flutter/material.dart';
 
 class Constants {
   static final Constants instance = Constants._init();
+  Girl randomizedGirl = Girl(name: "", isInCollection: true);
+  Girl randomizedKiller = Girl(name: "", isInCollection: true);
+  Girl randomizedLocation = Girl(name: "", isInCollection: true);
 
   Constants._init();
   List<String> randomizerMessages = [
@@ -35,6 +39,62 @@ class Constants {
     "I have concerns about your chances of success.",
     "I'm skeptical about your ability to achieve it.",
     "I'm not convinced you'll be able to make it."
+  ];
+
+  List<String> randomizerGirlDeathMessages = [
+    "You're pushing up daisies now!",
+    "RIP, you're done for!",
+    "Your pulse is MIA, you're officially D.O.A.",
+    "Game over, you're six feet under!",
+    "No more extra lives, you're ghosted!",
+    "Your heart's on vacation, you're deceased!",
+    "Checking out permanently, you're dead as a doornail!",
+    "No more respawns, you're in the afterlife!",
+    "Lights out, you're a goner!",
+    "Time of death: now! You're toast!",
+    "You've met your demise, you're pushing daisies!",
+    "You've bitten the dust, you're no more!",
+    "You're sleeping with the fishes, you're dead in the water!",
+    "You're six feet under, taking a dirt nap!",
+    "You're pushing up dandelions, you're out of the game!",
+    "You're a goner, resting in pieces!",
+    "You've kicked the bucket, you're no longer kicking!",
+    "You're in the great beyond, game over for you!",
+    "You're in the land of the dearly departed, RIP!",
+    "You're in the eternal slumber, no more respawn for you!"
+  ];
+
+  List<String> randomizerKillerDeathMessages = [
+    "You won, evil is gone, for now...",
+    "You're victorious, evil is vanquished, for now...",
+    "You've triumphed, evil is banished, for now...",
+    "You're the conqueror, evil is defeated, for now...",
+    "You're the hero, evil is subdued, for now...",
+    "You've overcome, evil is quelled, for now...",
+    "You're the champion, evil is eliminated, for now...",
+    "You've succeeded, evil is thwarted, for now...",
+    "You're the winner, evil is repelled, for now...",
+    "You've prevailed, evil is driven away, for now...",
+    "You're the slayer, the killer is D.O.A!",
+    "You've nailed it, the killer is pushing daisies!",
+    "You've triumphed, the killer is six feet under!",
+    "You're the victor, the killer is out of the picture!",
+    "You've outwitted, the killer is a goner!",
+    "You've checkmated, the killer is terminated!",
+    "You're the hero, the killer is toast!",
+    "You've prevailed, the killer is resting in peace!",
+    "You've conquered, the killer is a memory!",
+    "You're the winner, the killer is silenced forever!",
+    "You're the conqueror, the enemy is six feet under!",
+    "You've emerged victorious, the enemy is pushing up daisies!",
+    "You've triumphed, the enemy is vanquished and done for!",
+    "You're the champ, the enemy is defeated and in the past!",
+    "You're the kingpin, the enemy is terminated and out of the game!",
+    "You've prevailed, the enemy is neutralized and gone for good!",
+    "You're the top dog, the enemy is wiped out and no more!",
+    "You're the ruler, the enemy is erased and history!",
+    "You've won the battle, the enemy is silenced and done!",
+    "You're the mastermind, the enemy is eliminated and out of sight!"
   ];
 
   Widget build(BuildContext context) {
