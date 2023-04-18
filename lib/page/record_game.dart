@@ -1,3 +1,4 @@
+import 'package:final_girl_tool/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:final_girl_tool/db/final_girl_database.dart';
@@ -30,7 +31,13 @@ class __RecordGamePageState extends State<RecordGamePage> {
     List<Girl> lines = await FinalGirlDatabase.instance.getAllGirls();
     setState(() {
       girls = lines;
-      selectedGirl = girls[0];
+      Iterable<Girl> g = girls
+          .where((girl) => Constants.instance.randomizedGirl.id == girl.id);
+      if (g.isNotEmpty) {
+        selectedGirl = g.first;
+      } else {
+        selectedGirl = girls.first;
+      }
     });
   }
 
@@ -38,7 +45,13 @@ class __RecordGamePageState extends State<RecordGamePage> {
     List<Killer> lines = await FinalGirlDatabase.instance.getAllKillers();
     setState(() {
       killers = lines;
-      selectedKiller = killers[0];
+      Iterable<Killer> k = killers.where(
+          (killer) => Constants.instance.randomizedKiller.id == killer.id);
+      if (k.isNotEmpty) {
+        selectedKiller = k.first;
+      } else {
+        selectedKiller = killers.first;
+      }
     });
   }
 
@@ -46,7 +59,13 @@ class __RecordGamePageState extends State<RecordGamePage> {
     List<Location> lines = await FinalGirlDatabase.instance.getAllLocations();
     setState(() {
       locations = lines;
-      selectedLocation = locations[0];
+      Iterable<Location> l = locations.where((location) =>
+          Constants.instance.randomizedLocation.id == location.id);
+      if (l.isNotEmpty) {
+        selectedLocation = l.first;
+      } else {
+        selectedLocation = locations.first;
+      }
     });
   }
 
@@ -164,7 +183,7 @@ class __RecordGamePageState extends State<RecordGamePage> {
               DropdownButton<Girl>(
                 value: selectedGirl,
                 icon: const Icon(Icons.arrow_downward),
-                elevation: 16,
+                elevation: 8,
                 style: const TextStyle(color: Colors.red),
                 underline: Container(
                   height: 2,

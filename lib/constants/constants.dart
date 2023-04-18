@@ -1,11 +1,13 @@
 import 'package:final_girl_tool/model/girl.dart';
+import 'package:final_girl_tool/model/killer.dart';
+import 'package:final_girl_tool/model/location.dart';
 import 'package:flutter/material.dart';
 
 class Constants {
   static final Constants instance = Constants._init();
   Girl randomizedGirl = Girl(name: "", isInCollection: true);
-  Girl randomizedKiller = Girl(name: "", isInCollection: true);
-  Girl randomizedLocation = Girl(name: "", isInCollection: true);
+  Killer randomizedKiller = Killer(name: "", isInCollection: true);
+  Location randomizedLocation = Location(name: "", isInCollection: true);
 
   Constants._init();
   List<String> randomizerMessages = [

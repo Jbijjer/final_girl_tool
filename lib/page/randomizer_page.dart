@@ -14,9 +14,9 @@ class RandomizerPage extends StatefulWidget {
 }
 
 class _RandomizerPageState extends State<RandomizerPage> {
-  List<Location> locationNames = [];
-  List<Killer> killerNames = [];
-  List<Girl> girlNames = [];
+  List<Location> locations = [];
+  List<Killer> killers = [];
+  List<Girl> girls = [];
   Color girlSelectedColor = Colors.black;
   Color killerSelectedColor = Colors.black;
   Color locationSelectedColor = Colors.black;
@@ -32,17 +32,17 @@ class _RandomizerPageState extends State<RandomizerPage> {
     List<Girl> girlLines =
         await FinalGirlDatabase.instance.getGirlsInCollection();
     setState(() {
-      girlNames = girlLines;
+      girls = girlLines;
     });
     List<Killer> killerLines =
         await FinalGirlDatabase.instance.getKillersInCollection();
     setState(() {
-      killerNames = killerLines;
+      killers = killerLines;
     });
     List<Location> locationLines =
         await FinalGirlDatabase.instance.getLocationsInCollection();
     setState(() {
-      locationNames = locationLines;
+      locations = locationLines;
     });
   }
 
@@ -56,26 +56,29 @@ class _RandomizerPageState extends State<RandomizerPage> {
     _loadNamesFromFiles();
     Random random = Random();
     int index = 0;
-    if (killerNames.isNotEmpty &&
-        locationNames.isNotEmpty &&
-        girlNames.isNotEmpty) {
+    if (killers.isNotEmpty &&
+        locations.isNotEmpty &&
+        girls.isNotEmpty) {
       randomized = true;
       if (killerSelectedColor != Colors.red) {
-        index = random.nextInt(killerNames.length);
+        index = random.nextInt(killers.length);
         setState(() {
-          killerName = killerNames[index].name;
+          killerName = killers[index].name;
+          Constants.instance.randomizedKiller = killers[index];
         });
       }
       if (locationSelectedColor != Colors.red) {
-        index = random.nextInt(locationNames.length);
+        index = random.nextInt(locations.length);
         setState(() {
-          locationName = locationNames[index].name;
+          locationName = locations[index].name;
+          Constants.instance.randomizedLocation = locations[index];
         });
       }
       if (girlSelectedColor != Colors.red) {
-        index = random.nextInt(girlNames.length);
+        index = random.nextInt(girls.length);
         setState(() {
-          girlName = girlNames[index].name;
+          girlName = girls[index].name;
+          Constants.instance.randomizedGirl = girls[index];
         });
       }
       setState(() {});
