@@ -5,7 +5,6 @@ import 'package:final_girl_tool/model/location.dart';
 import 'package:final_girl_tool/model/killer.dart';
 import 'package:final_girl_tool/model/game.dart';
 import 'package:final_girl_tool/model/statistic.dart';
-import 'package:confirm_dialog/confirm_dialog.dart';
 
 class StatisticPage extends StatefulWidget {
   const StatisticPage({super.key});
@@ -18,9 +17,9 @@ class __StatisticPageState extends State<StatisticPage> {
   List<Game> games = [];
   int currentIndex = 0;
   Game currentStatistic = Game(
-      girlID: 1,
-      killerID: 1,
-      locationID: 1,
+      girlID: 0,
+      killerID: 0,
+      locationID: 0,
       win: false,
       victimsSaved: 0,
       victimsKilled: 0,
@@ -130,6 +129,8 @@ class __StatisticPageState extends State<StatisticPage> {
 
   Future<void> deleteGame() async {
     FinalGirlDatabase.instance.deleteGame(currentStatistic.id!);
+    _loadStatistics();
+    _loadDetailedStatistics();
   }
 
   @override
@@ -137,6 +138,13 @@ class __StatisticPageState extends State<StatisticPage> {
     super.initState();
     _loadStatistics();
     _loadDetailedStatistics();
+  }
+
+  @override
+  void dispose() {
+    // This method will be called when the widget is removed from the widget tree
+    // You can put your cleanup logic here
+    super.dispose();
   }
 
   @override
@@ -380,9 +388,11 @@ class __StatisticPageState extends State<StatisticPage> {
                           if (currentIndex > 0) {
                             currentIndex--;
                             _loadStatistics();
+                            _loadDetailedStatistics();
                           } else {
                             currentIndex = games.length - 1;
                             _loadStatistics();
+                            _loadDetailedStatistics();
                           }
                         });
                       },
@@ -393,9 +403,11 @@ class __StatisticPageState extends State<StatisticPage> {
                           if (currentIndex < games.length - 1) {
                             currentIndex++;
                             _loadStatistics();
+                            _loadDetailedStatistics();
                           } else {
                             currentIndex = 0;
                             _loadStatistics();
+                            _loadDetailedStatistics();
                           }
                         });
                       },

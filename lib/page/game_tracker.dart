@@ -184,9 +184,9 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
     });
   }
 
-  _generateGirlDeathMessage() async {
-    index = await random
-        .nextInt(Constants.instance.randomizerGirlDeathMessages.length);
+  _generateGirlDeathMessage() {
+    index =
+        random.nextInt(Constants.instance.randomizerGirlDeathMessages.length);
     setState(() {
       girlDeathMessage = Constants.instance.randomizerGirlDeathMessages[index];
     });
@@ -213,9 +213,9 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
         });
   }
 
-  _generateKillerDeathMessage() async {
-    index = await random
-        .nextInt(Constants.instance.randomizerKillerDeathMessages.length);
+  _generateKillerDeathMessage() {
+    index =
+        random.nextInt(Constants.instance.randomizerKillerDeathMessages.length);
     setState(() {
       killerDeathMessage =
           Constants.instance.randomizerKillerDeathMessages[index];
@@ -778,7 +778,8 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(onPressed: () {}, child: Text("Record Game")),
+            child: ElevatedButton(
+                onPressed: () {}, child: const Text("Record Game")),
           )
         ],
       ),
