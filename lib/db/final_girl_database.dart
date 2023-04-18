@@ -115,7 +115,8 @@ class FinalGirlDatabase {
     if (maps.isNotEmpty) {
       return Girl.fromJson(maps.first);
     } else {
-      throw Exception('ID $id not found');
+      return Girl(name: "", isInCollection: true);
+      //throw Exception('ID $id not found');
     }
   }
 
@@ -132,7 +133,8 @@ class FinalGirlDatabase {
     if (maps.isNotEmpty) {
       return Killer.fromJson(maps.first);
     } else {
-      throw Exception('ID $id not found');
+      return Killer(name: "", isInCollection: true);
+      //throw Exception('ID $id not found');
     }
   }
 
@@ -149,7 +151,8 @@ class FinalGirlDatabase {
     if (maps.isNotEmpty) {
       return Location.fromJson(maps.first);
     } else {
-      throw Exception('ID $id not found');
+      return Location(name: "", isInCollection: true);
+      //throw Exception('ID $id not found');
     }
   }
 
@@ -345,6 +348,9 @@ class FinalGirlDatabase {
         'SELECT girlID, count(*) as total FROM games group by girlID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final girlID =
         firstRow['girlID']; // Access the 'girlID' value from the first row
@@ -358,6 +364,9 @@ class FinalGirlDatabase {
         'SELECT killerID, count(*) as total FROM games group by girlID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final killerID =
         firstRow['killerID']; // Access the 'killerID' value from the first row
@@ -371,6 +380,9 @@ class FinalGirlDatabase {
         'SELECT locationID, count(*) as total FROM games group by girlID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final locationID = firstRow[
         'locationID']; // Access the 'locationID' value from the first row
@@ -384,6 +396,9 @@ class FinalGirlDatabase {
         'SELECT girlID, count(*) as total FROM games where win=1 group by girlID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final girlID =
         firstRow['girlID']; // Access the 'girlID' value from the first row
@@ -397,6 +412,9 @@ class FinalGirlDatabase {
         'SELECT killerID, count(*) as total FROM games where win=1 group by killerID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final killerID =
         firstRow['killerID']; // Access the 'killerID' value from the first row
@@ -410,6 +428,9 @@ class FinalGirlDatabase {
         'SELECT locationID, count(*) as total FROM games where win=1 group by locationID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final locationID = firstRow[
         'locationID']; // Access the 'locationID' value from the first row
@@ -423,6 +444,9 @@ class FinalGirlDatabase {
         'SELECT girlID, count(*) as total FROM games where win=0 group by girlID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final girlID =
         firstRow['girlID']; // Access the 'girlID' value from the first row
@@ -436,6 +460,9 @@ class FinalGirlDatabase {
         'SELECT killerID, count(*) as total FROM games where win=0 group by killerID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final killerID =
         firstRow['killerID']; // Access the 'killerID' value from the first row
@@ -449,6 +476,9 @@ class FinalGirlDatabase {
         'SELECT locationID, count(*) as total FROM games where win=0 group by locationID order by total desc');
 
     // Check if the result is not empty
+    if (result.isEmpty) {
+      return "";
+    }
     final firstRow = result.first; // Get the first row from the result
     final locationID = firstRow[
         'locationID']; // Access the 'locationID' value from the first row
