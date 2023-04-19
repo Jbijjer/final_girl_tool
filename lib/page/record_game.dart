@@ -122,9 +122,10 @@ class __RecordGamePageState extends State<RecordGamePage> {
             child: SizedBox(
               width: 379,
               child: TextFormField(
+                initialValue: Constants.instance.trackedGame.gameName,
                 decoration: const InputDecoration(
                     border: UnderlineInputBorder(), labelText: "Game name:"),
-                onChanged: (value) => gameName = value,
+                onChanged: (value) => Constants.instance.trackedGame.gameName = value,
               ),
             ),
           ),
@@ -250,11 +251,11 @@ class __RecordGamePageState extends State<RecordGamePage> {
                 Text('Victims Saved',
                     style: Theme.of(context).textTheme.titleSmall),
                 NumberPicker(
-                  value: victimsSaved,
+                  value: Constants.instance.trackedGame.victimsSaved,
                   minValue: 0,
                   maxValue: 20,
                   haptics: true,
-                  onChanged: (value) => setState(() => victimsSaved = value),
+                  onChanged: (value) => setState(() => Constants.instance.trackedGame.victimsSaved = value),
                 ),
               ]),
               Column(
@@ -262,11 +263,11 @@ class __RecordGamePageState extends State<RecordGamePage> {
                   Text('Victims Killed',
                       style: Theme.of(context).textTheme.titleSmall),
                   NumberPicker(
-                    value: victimsKilled,
+                    value: Constants.instance.trackedGame.victimsKilled,
                     minValue: 0,
                     maxValue: 20,
                     haptics: true,
-                    onChanged: (value) => setState(() => victimsKilled = value),
+                    onChanged: (value) => setState(() => Constants.instance.trackedGame.victimsKilled = value),
                   ),
                 ],
               )

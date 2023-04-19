@@ -264,7 +264,7 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
               child: TextFormField(
                 decoration: const InputDecoration(
                     border: UnderlineInputBorder(), labelText: "Game name:"),
-                onChanged: (value) => gameName = value,
+                onChanged: (value) => Constants.instance.trackedGame.gameName = value,
               ),
             ),
           ),
@@ -556,7 +556,7 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                           child: Text(
-                            victimsSaved.toString(),
+                            Constants.instance.trackedGame.victimsSaved.toString(),
                             style: const TextStyle(
                                 color: Colors.black, fontSize: 16),
                           ),
@@ -574,7 +574,7 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                           child: Text(
-                            victimsKilled.toString(),
+                            Constants.instance.trackedGame.victimsKilled.toString(),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -592,8 +592,8 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                if (victimsSaved > 0) {
-                                  victimsSaved--;
+                                if (Constants.instance.trackedGame.victimsSaved > 0) {
+                                  Constants.instance.trackedGame.victimsSaved--;
                                 }
                               });
                             },
@@ -601,7 +601,7 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                victimsSaved++;
+                                Constants.instance.trackedGame.victimsSaved++;
                               });
                             },
                             icon: const Icon(Icons.add)),
@@ -612,8 +612,8 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                if (victimsKilled > 0) {
-                                  victimsKilled--;
+                                if (Constants.instance.trackedGame.victimsKilled > 0) {
+                                  Constants.instance.trackedGame.victimsKilled--;
                                 }
                               });
                             },
@@ -621,7 +621,7 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                victimsKilled++;
+                                Constants.instance.trackedGame.victimsKilled++;
                               });
                             },
                             icon: const Icon(Icons.add)),

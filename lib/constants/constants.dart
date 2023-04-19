@@ -1,6 +1,7 @@
 import 'package:final_girl_tool/model/girl.dart';
 import 'package:final_girl_tool/model/killer.dart';
 import 'package:final_girl_tool/model/location.dart';
+import 'package:final_girl_tool/model/game.dart';
 import 'package:flutter/material.dart';
 
 class Constants {
@@ -8,6 +9,7 @@ class Constants {
   Girl randomizedGirl = Girl(name: "", isInCollection: true);
   Killer randomizedKiller = Killer(name: "", isInCollection: true);
   Location randomizedLocation = Location(name: "", isInCollection: true);
+  Game trackedGame = Game(girlID: 0, killerID: 0, locationID: 0, win: false, victimsSaved: 0, victimsKilled: 0, gameName: "", description: "");
 
   Constants._init();
   List<String> randomizerMessages = [

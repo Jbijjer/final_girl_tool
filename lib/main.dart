@@ -92,9 +92,11 @@ class _FinalGirlToolState extends State<FinalGirlTool> {
             label: "Tracker",
           ),
           NavigationDestination(
-              icon: Icon(Icons.radio_button_checked), label: "Recorder"),
+            icon: Icon(Icons.radio_button_checked),
+            label: "Recorder",),
           NavigationDestination(
-              icon: Icon(Icons.bar_chart), label: "Statistics"),
+            icon: Icon(Icons.bar_chart),
+            label: "Statistics",),
         ],
         onDestinationSelected: (int index) {
           setState(() {
