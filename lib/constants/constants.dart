@@ -9,7 +9,24 @@ class Constants {
   Girl randomizedGirl = Girl(name: "", isInCollection: true);
   Killer randomizedKiller = Killer(name: "", isInCollection: true);
   Location randomizedLocation = Location(name: "", isInCollection: true);
-  Game trackedGame = Game(girlID: 0, killerID: 0, locationID: 0, win: false, victimsSaved: 0, victimsKilled: 0, gameName: "", description: "");
+  Game emptyGame = Game(
+      girlID: 0,
+      killerID: 0,
+      locationID: 0,
+      win: false,
+      victimsSaved: 0,
+      victimsKilled: 0,
+      gameName: "",
+      description: "");
+  Game trackedGame = Game(
+      girlID: 0,
+      killerID: 0,
+      locationID: 0,
+      win: false,
+      victimsSaved: 0,
+      victimsKilled: 0,
+      gameName: "",
+      description: "");
 
   Constants._init();
   List<String> randomizerMessages = [
@@ -99,6 +116,32 @@ class Constants {
     "You're the ruler, the enemy is erased and history!",
     "You've won the battle, the enemy is silenced and done!",
     "You're the mastermind, the enemy is eliminated and out of sight!"
+  ];
+
+  List<String> randomizerFirstFinalGirlDeath = [
+    "You're losing ground, the evil is gaining. Are you hanging in there?",
+    "You're falling behind, the evil is prevailing. Are you still in the game?",
+    "You're slipping away, the evil is taking over. Are you coping?",
+    "You're losing grip, the evil is dominating. Are you enduring?",
+    "You're on the losing side, the evil is conquering. Are you persevering?",
+    "You're struggling, the evil is overpowering. Are you managing?",
+    "You're facing defeat, the evil is advancing. Are you holding on?",
+    "You're on the losing streak, the evil is in control. Are you staying strong?",
+    "You're losing the battle, the evil is winning the war. Are you standing firm?",
+    "You're on the brink of failure, the evil is prevailing. Are you staying resilient?"
+  ];
+
+  List<String> randomizerFirstKillerDeath = [
+    "You came close to victory! The evil is down, but not out.",
+    "You were on the brink of winning! The evil is down, but still a threat.",
+    "You almost made it! The evil is down, but still lurking.",
+    "You were so close! The evil is down, but not defeated yet.",
+    "You were inches away from winning! The evil is down, but not gone.",
+    "You had victory within reach! The evil is down, but not eradicated.",
+    "You were right there! The evil is down, but not vanquished.",
+    "You were on the cusp of winning! The evil is down, but not silenced.",
+    "You were about to triumph! The evil is down, but not surrendered.",
+    "You nearly emerged victorious! The evil is down, but still a formidable foe."
   ];
 
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:final_girl_tool/constants/constants.dart';
 import 'package:final_girl_tool/page/collection_page.dart';
 import 'package:final_girl_tool/page/statistic_page.dart';
 import 'package:final_girl_tool/page/record_game.dart';

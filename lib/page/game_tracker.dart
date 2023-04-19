@@ -26,11 +26,11 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
   int j = 0;
   bool finalGirlDied = false;
   bool killerDied = false;
-  String gameName = "";
   String girlDeathMessage = "";
   String killerDeathMessage = "";
-  String notes = "";
-  bool win = false;
+  String girlFirstDeathMessage = "";
+  String killerFirstDeathMessage = "";
+  bool showMessage = false;
   List<Girl> girls = [];
   List<Killer> killers = [];
   List<Location> locations = [];
@@ -82,7 +82,26 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
     });
   }
 
+  Future<void> _getRandomizedGirlFirstDeathMessage() async {
+    index = await random
+        .nextInt(Constants.instance.randomizerFirstFinalGirlDeath.length);
+    setState(() {
+      girlFirstDeathMessage =
+          Constants.instance.randomizerFirstFinalGirlDeath[index];
+    });
+  }
+
+  Future<void> _getRandomizedKillerFirstDeathMessage() async {
+    index = await random
+        .nextInt(Constants.instance.randomizerFirstKillerDeath.length);
+    setState(() {
+      killerFirstDeathMessage =
+          Constants.instance.randomizerFirstKillerDeath[index];
+    });
+  }
+
   _showGirlDiedFirstTime() async {
+    _getRandomizedGirlFirstDeathMessage();
     await showDialog<void>(
         context: context,
         barrierDismissible: false, // user must tap button!
@@ -93,6 +112,11 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
               content: SingleChildScrollView(
                 child: Row(
                   children: [
+                    SizedBox(
+                      width: 175,
+                      child: Text(
+                          "$girlFirstDeathMessage \n\nTurn over your health token and enter the number shown here."),
+                    ),
                     IconButton(
                         onPressed: () {
                           setState(
@@ -128,12 +152,17 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
             );
           });
         });
-    setState(() {
-      finalGirlHP = i;
-    });
+    if (i > 0) {
+      setState(() {
+        finalGirlHP = i;
+      });
+    } else {
+      _showGirlDied();
+    }
   }
 
   _showKillerFirstTime() async {
+    _getRandomizedKillerFirstDeathMessage();
     await showDialog<void>(
         context: context,
         barrierDismissible: false, // user must tap button!
@@ -144,6 +173,11 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
               content: SingleChildScrollView(
                 child: Row(
                   children: [
+                    SizedBox(
+                      width: 175,
+                      child: Text(
+                          "$killerFirstDeathMessage \n\nTurn over its health token and enter the number shown here."),
+                    ),
                     IconButton(
                         onPressed: () {
                           setState(
@@ -179,9 +213,13 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
             );
           });
         });
-    setState(() {
-      killerHP = j;
-    });
+    if (j > 0) {
+      setState(() {
+        killerHP = j;
+      });
+    } else {
+      _showKillerDied();
+    }
   }
 
   _generateGirlDeathMessage() {
@@ -211,6 +249,10 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
             ],
           );
         });
+    setState(() {
+      showMessage = true;
+      Constants.instance.trackedGame.win = false;
+    });
   }
 
   _generateKillerDeathMessage() {
@@ -241,6 +283,10 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
             ],
           );
         });
+    setState(() {
+      showMessage = true;
+      Constants.instance.trackedGame.win = true;
+    });
   }
 
   @override
@@ -264,7 +310,8 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
               child: TextFormField(
                 decoration: const InputDecoration(
                     border: UnderlineInputBorder(), labelText: "Game name:"),
-                onChanged: (value) => Constants.instance.trackedGame.gameName = value,
+                onChanged: (value) =>
+                    Constants.instance.trackedGame.gameName = value,
               ),
             ),
           ),
@@ -556,7 +603,8 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                           child: Text(
-                            Constants.instance.trackedGame.victimsSaved.toString(),
+                            Constants.instance.trackedGame.victimsSaved
+                                .toString(),
                             style: const TextStyle(
                                 color: Colors.black, fontSize: 16),
                           ),
@@ -574,7 +622,8 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 14, 20, 14),
                           child: Text(
-                            Constants.instance.trackedGame.victimsKilled.toString(),
+                            Constants.instance.trackedGame.victimsKilled
+                                .toString(),
                             style: const TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -592,7 +641,9 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                if (Constants.instance.trackedGame.victimsSaved > 0) {
+                                if (Constants
+                                        .instance.trackedGame.victimsSaved >
+                                    0) {
                                   Constants.instance.trackedGame.victimsSaved--;
                                 }
                               });
@@ -612,8 +663,11 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
                         IconButton(
                             onPressed: () {
                               setState(() {
-                                if (Constants.instance.trackedGame.victimsKilled > 0) {
-                                  Constants.instance.trackedGame.victimsKilled--;
+                                if (Constants
+                                        .instance.trackedGame.victimsKilled >
+                                    0) {
+                                  Constants
+                                      .instance.trackedGame.victimsKilled--;
                                 }
                               });
                             },
@@ -776,11 +830,13 @@ class __GameTrackerPageState extends State<GameTrackerPage> {
             height: 5,
             thickness: 3,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
-                onPressed: () {}, child: const Text("Record Game")),
-          )
+          Visibility(
+              visible: showMessage,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                    "Your game is finished. Tap on Record Game to record it."),
+              ))
         ],
       ),
     );

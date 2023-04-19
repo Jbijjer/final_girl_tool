@@ -75,9 +75,9 @@ class __RecordGamePageState extends State<RecordGamePage> {
         killerID: selectedKiller.id!,
         locationID: selectedLocation.id!,
         win: win,
-        victimsSaved: victimsSaved,
-        victimsKilled: victimsKilled,
-        gameName: gameName,
+        victimsSaved: Constants.instance.trackedGame.victimsSaved,
+        victimsKilled: Constants.instance.trackedGame.victimsKilled,
+        gameName: Constants.instance.trackedGame.gameName,
         description: notes);
 
     await FinalGirlDatabase.instance.createGame(game);
@@ -125,7 +125,8 @@ class __RecordGamePageState extends State<RecordGamePage> {
                 initialValue: Constants.instance.trackedGame.gameName,
                 decoration: const InputDecoration(
                     border: UnderlineInputBorder(), labelText: "Game name:"),
-                onChanged: (value) => Constants.instance.trackedGame.gameName = value,
+                onChanged: (value) =>
+                    Constants.instance.trackedGame.gameName = value,
               ),
             ),
           ),
@@ -150,7 +151,7 @@ class __RecordGamePageState extends State<RecordGamePage> {
           ),
           Switch(
             // This bool value toggles the switch.
-            value: win,
+            value: Constants.instance.trackedGame.win,
             activeColor: Colors.red,
             onChanged: (bool value) {
               // This is called when the user toggles the switch.
@@ -255,7 +256,8 @@ class __RecordGamePageState extends State<RecordGamePage> {
                   minValue: 0,
                   maxValue: 20,
                   haptics: true,
-                  onChanged: (value) => setState(() => Constants.instance.trackedGame.victimsSaved = value),
+                  onChanged: (value) => setState(() =>
+                      Constants.instance.trackedGame.victimsSaved = value),
                 ),
               ]),
               Column(
@@ -267,7 +269,8 @@ class __RecordGamePageState extends State<RecordGamePage> {
                     minValue: 0,
                     maxValue: 20,
                     haptics: true,
-                    onChanged: (value) => setState(() => Constants.instance.trackedGame.victimsKilled = value),
+                    onChanged: (value) => setState(() =>
+                        Constants.instance.trackedGame.victimsKilled = value),
                   ),
                 ],
               )

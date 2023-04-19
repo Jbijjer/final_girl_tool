@@ -371,7 +371,7 @@ class __StatisticPageState extends State<StatisticPage> {
             thickness: 5,
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(
@@ -512,9 +512,12 @@ class __StatisticPageState extends State<StatisticPage> {
                     "Note",
                     style: TextStyle(fontSize: 17),
                   ),
-                  Text(
-                    currentStatistic.description,
-                    style: const TextStyle(fontSize: 17),
+                  SizedBox(
+                    width: 175,
+                    child: Text(
+                      currentStatistic.description,
+                      style: const TextStyle(fontSize: 17),
+                    ),
                   ),
                 ],
               ),

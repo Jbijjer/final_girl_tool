@@ -1,6 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:final_girl_tool/constants/constants.dart';
 import 'package:final_girl_tool/page/collection_page.dart';
 import 'package:final_girl_tool/page/statistic_page.dart';
 import 'package:final_girl_tool/page/record_game.dart';
@@ -17,11 +16,11 @@ class RandomNameApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        '/mainlayout': (context) => FinalGirlTool(),
-        '/page1': (context) => RandomizerPage(),
-        '/page2': (context) => GameTrackerPage(),
-        '/page3': (context) => RecordGamePage(),
-        '/page4': (context) => StatisticPage(),
+        '/mainlayout': (context) => const FinalGirlTool(),
+        '/page1': (context) => const RandomizerPage(),
+        '/page2': (context) => const GameTrackerPage(),
+        '/page3': (context) => const RecordGamePage(),
+        '/page4': (context) => const StatisticPage(),
       },
       initialRoute: '/mainlayout',
       debugShowCheckedModeBanner: false,
@@ -47,17 +46,10 @@ class _FinalGirlToolState extends State<FinalGirlTool> {
     StatisticPage(),
   ];
   String titleAppBar = "Randomizer";
-  
-  final _page1 = GlobalKey<NavigatorState>();
-  final _page2 = GlobalKey<NavigatorState>();
-  final _page3 = GlobalKey<NavigatorState>();
-  final _page4 = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
-      
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(titleAppBar),
@@ -97,7 +89,6 @@ class _FinalGirlToolState extends State<FinalGirlTool> {
       ),
       body: pages[currentIndex],
       bottomNavigationBar: NavigationBar(
-        
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.casino),
@@ -109,10 +100,12 @@ class _FinalGirlToolState extends State<FinalGirlTool> {
           ),
           NavigationDestination(
             icon: Icon(Icons.radio_button_checked),
-            label: "Recorder",),
+            label: "Recorder",
+          ),
           NavigationDestination(
             icon: Icon(Icons.bar_chart),
-            label: "Statistics",),
+            label: "Statistics",
+          ),
         ],
         onDestinationSelected: (int index) {
           setState(() {

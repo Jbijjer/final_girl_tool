@@ -10,10 +10,10 @@ class RandomizerPage extends StatefulWidget {
   const RandomizerPage({super.key});
 
   @override
-  State<RandomizerPage> createState() => _RandomizerPageState();
+  State<RandomizerPage> createState() => RandomizerPageState();
 }
 
-class _RandomizerPageState extends State<RandomizerPage> {
+class RandomizerPageState extends State<RandomizerPage> {
   List<Location> locations = [];
   List<Killer> killers = [];
   List<Girl> girls = [];
@@ -51,14 +51,12 @@ class _RandomizerPageState extends State<RandomizerPage> {
   String locationName = 'The Location';
   String message = 'Press dice to generate a new game.';
 
-  void _generateRandomGame() {
+  void generateRandomGame() async {
     randomized = true;
-    _loadNamesFromFiles();
+    await _loadNamesFromFiles();
     Random random = Random();
     int index = 0;
-    if (killers.isNotEmpty &&
-        locations.isNotEmpty &&
-        girls.isNotEmpty) {
+    if (killers.isNotEmpty && locations.isNotEmpty && girls.isNotEmpty) {
       randomized = true;
       if (killerSelectedColor != Colors.red) {
         index = random.nextInt(killers.length);
@@ -81,7 +79,6 @@ class _RandomizerPageState extends State<RandomizerPage> {
           Constants.instance.randomizedGirl = girls[index];
         });
       }
-      setState(() {});
     } else {
       showDialog<void>(
         context: context,
@@ -235,7 +232,9 @@ class _RandomizerPageState extends State<RandomizerPage> {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 12),
           child: FloatingActionButton(
-              onPressed: _generateRandomGame,
+              onPressed: () {
+                generateRandomGame();
+              },
               backgroundColor: Colors.red,
               child: const Icon(Icons.casino)),
         ),

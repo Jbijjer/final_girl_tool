@@ -1,4 +1,3 @@
-import 'package:final_girl_tool/constants/constants.dart';
 import 'package:final_girl_tool/page/collection_page.dart';
 import 'package:flutter/material.dart';
 import 'package:final_girl_tool/page/statistic_page.dart';
@@ -109,8 +108,10 @@ class _MainLayoutState extends State<MainLayout> {
           unselectedItemColor: Colors.grey,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(icon: Icon(Icons.date_range), label: 'Statistics'),
-            BottomNavigationBarItem(icon: Icon(Icons.wallet_giftcard), label: 'Wallet'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.date_range), label: 'Statistics'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.wallet_giftcard), label: 'Wallet'),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
         ),

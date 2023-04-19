@@ -109,7 +109,7 @@ class RandomizerP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _returnAppBar(context, "Randomizer"),
-      body: RandomizerPage(),
+      body: const RandomizerPage(),
     );
   }
 }
@@ -121,7 +121,7 @@ class TrackerP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _returnAppBar(context, "Tracker"),
-      body: GameTrackerPage(),
+      body: const GameTrackerPage(),
     );
   }
 }
@@ -133,7 +133,7 @@ class RecorderP extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _returnAppBar(context, "Recorder"),
-      body: RecordGamePage(),
+      body: const RecordGamePage(),
     );
   }
 }
@@ -149,7 +149,7 @@ class __StatsPState extends State<StatsP> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _returnAppBar(context, "Statistics"),
-      body: StatisticPage(),
+      body: const StatisticPage(),
     );
   }
 }
